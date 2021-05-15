@@ -31,7 +31,7 @@
         transform: scaleX(0);
         transform-origin: right;
         background-color: var(--primary);
-        transition: all .3s;
+        transition: all .15s;
     }
 
     .link:hover::after {

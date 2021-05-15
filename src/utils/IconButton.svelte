@@ -1,9 +1,17 @@
 <script>
+    import {createEventDispatcher} from "svelte";
+
+    let dispatch = createEventDispatcher()
+
     export let icon;
+
+    function click() {
+        dispatch("click")
+    }
 </script>
 
 <main>
-    <button class="min_btn">
+    <button on:click={click} class="min_btn">
         <i class="{icon}"></i>
     </button>
 </main>

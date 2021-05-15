@@ -3,13 +3,14 @@
 	import Navbar from "./CollectionView/Navbar.svelte"
 	import Collection from "./CollectionView/Collection.svelte"
 	import HomeView from "./HomeView/HomeView.svelte"
+
 	import { collectionsStorage} from "./storage/storage";
 	import { onDestroy } from "svelte"
 
 	let home = false;
 
 	let collections = []
-	let currentCollection = 0
+	$: currentCollection = collections[0]
 
 
 	const unsuscribe = collectionsStorage.subscribe(value => collections = value )
