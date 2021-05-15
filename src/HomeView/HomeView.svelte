@@ -9,16 +9,17 @@
     let filter = ""
 
     $: collectionsOk = collections.filter(collection => {
-        if (filter === "") {
+        let parsedFilter = filter.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        if (parsedFilter === "") {
             return collection
         }
         else {
-            if (collection.title.includes(filter) || collection.author.includes(filter)) {
+            if (collection.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(parsedFilter) || collection.author.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(parsedFilter)) {
                 return collection
             }
             let ok = false
             collection.tags.forEach((tag) => {
-                if (tag.includes(filter)) {
+                if (tag.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(parsedFilter)) {
                     ok = true
                 }
             })
