@@ -1,5 +1,11 @@
 <script>
     import Card from "../utils/Card.svelte"
+    export let cards;
+
+    $: ok = cards.filter(card => card.status === "ok").length
+    $: semi = cards.filter(card => card.status === "semi").length
+    $: none = cards.filter(card => card.status === "none").length
+    $: total = ok + semi + none
 
 </script>
 
@@ -7,10 +13,10 @@
 
     <div id="progress">
 
-        <Card status="Connus" number="2"/>
-        <Card status="Abordés" number="1"/>
-        <Card status="Inconnus" number="2"/>
-        <Card status="Total" number="5"/>
+        <Card status="Connus" number="{ok}"/>
+        <Card status="Abordés" number="{semi}"/>
+        <Card status="Inconnus" number="{none}"/>
+        <Card status="Total" number="{total}"/>
 
     </div>
 

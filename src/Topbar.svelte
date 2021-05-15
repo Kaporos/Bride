@@ -17,12 +17,13 @@
 
 <style>
     #topbar {
+
         width: 100%;
         height: 8vh;
         background-color: var(--dark);
         display: flex;
         align-items: center;
-        font-family: "Gilroy"
+        font-family: "Gilroy",serif
     }
 
     #brand {

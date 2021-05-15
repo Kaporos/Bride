@@ -1,11 +1,16 @@
 <script>
+    import {createEventDispatcher} from "svelte";
+
+    const dispatch = createEventDispatcher();
     export let destination;
-    export let icon;
     export let text;
+    function click() {
+        dispatch("click", {})
+    }
 </script>
 
 <main>
-    <a href="{destination}" class="link">{@html text}</a>
+    <a href="{destination}" on:click={click} class="link">{@html text}</a>
 </main>
 
 

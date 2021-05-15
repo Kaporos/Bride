@@ -2,6 +2,14 @@
     import TitleBar from "./TitleBar.svelte"
     import Status from "./Status.svelte"
     import FlashCards from "./FlashCards.svelte"
+    import {createEventDispatcher} from "svelte";
+    const dispatch = createEventDispatcher();
+    export let collection;
+
+
+    function goHome() {
+        dispatch("home", {})
+    }
 
 </script>
 
@@ -10,9 +18,9 @@
     <div id="main" class="part">
 
         <div id="wrapper">
-            <TitleBar collectionName="Unit 2: Vocabulary"/>
-            <Status/>
-            <FlashCards/>
+            <TitleBar on:click={goHome} collectionName="{collection.title}"/>
+            <Status cards={collection.cards}/>
+            <FlashCards cards={collection.cards}/>
         </div>
 
 
@@ -27,7 +35,6 @@
         max-height: 92vh;
         flex-grow: 0;
         font-family: "Gilroy",serif;
-        background-color: var(--background);
         overflow-y: auto;
     }
 

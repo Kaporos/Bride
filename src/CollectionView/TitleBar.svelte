@@ -1,14 +1,21 @@
 <script>
+    import {createEventDispatcher} from "svelte";
+
+    const dispatch = createEventDispatcher();
     import Link from "../utils/Link.svelte"
     import ActionButton from "../utils/ActionButton.svelte"
     export let collectionName;
+
+    function clickHome() {
+        dispatch("click", {})
+    }
 
 </script>
 
 <main>
     <div id="title">
         <div>
-            <Link destination="#" text="<i class='fas fa-long-arrow-alt-left'></i> Return home"/>
+            <Link destination="#" on:click={clickHome} text="<i class='fas fa-long-arrow-alt-left'></i> Return home"/>
             <p id="listname">{ collectionName }</p>
 
         </div>

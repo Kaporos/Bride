@@ -2,6 +2,8 @@
     import FlashPreview from "../utils/FlashPreview.svelte"
     import IconButton from "../utils/IconButton.svelte"
 
+    export let cards;
+
 </script>
 
 <main>
@@ -15,11 +17,9 @@
             </div>
         </div>
 
-        <FlashPreview status="ok" term="table" definition="table"/>
-        <FlashPreview status="ok" term="apple" definition="pomme"/>
-        <FlashPreview status="semi" term="banana" definition="banane"/>
-        <FlashPreview status="none" term="cherry" definition="cerise"/>
-        <FlashPreview status="none" term="peach" definition="pêche"/>
+        {#each cards as card}
+        <FlashPreview status="{card.status}" term="{card.term}" definition="{card.definition}"/>
+        {/each}
     </div>
 
 </main>
