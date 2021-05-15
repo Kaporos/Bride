@@ -13,7 +13,6 @@
 
     let isFlipped = false;
 
-    $: classValue = isFlipped ? "is-flipped" : "" /* TODO Properly */
 
     function flip() {
         isFlipped = !isFlipped
@@ -26,7 +25,6 @@
     }
     function previous() {
         flipCurrentCard = flipCurrentCard === 0  ? cards.length - 1 : flipCurrentCard - 1
-
     }
 
 
@@ -52,7 +50,7 @@
         {#if view === "card"}
             <div id="reverse">
                 <div class="scene">
-                    <div on:click={flip} class="card {classValue}">
+                    <div on:click={flip} class="card {isFlipped ? 'is-flipped' : '' }">
                         <div class="card__face card__face--front">{ cards[flipCurrentCard].term }</div>
                         <div class="card__face card__face--back">{ cards[flipCurrentCard].definition }</div>
                     </div>
@@ -137,11 +135,12 @@
         height: 100%;
         color: var(--dark);
         font-weight: bold;
-        font-size: 40px;
+        font-size: 1.8vw;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         display: grid;
         place-items: center;
+        text-align: center;
 
 
     }
@@ -155,6 +154,7 @@
 
         transform: rotateY(180deg);
     }
+
 
     #controls {
         display: flex;

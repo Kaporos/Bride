@@ -10,7 +10,7 @@
 	let home = false;
 
 	let collections = []
-	$: currentCollection = collections[0]
+	let currentCollection = 0
 
 
 	const unsuscribe = collectionsStorage.subscribe(value => collections = value )

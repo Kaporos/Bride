@@ -105,6 +105,7 @@
         border-radius: 5px;
         color: var(--background);
         margin-bottom: 5px;
+        font-size: 1vw;
 
 
     }
@@ -121,13 +122,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: var(--dark)
+        color: var(--dark);
+        font-size: 1vw;
 
 
     }
 
     .number {
         font-weight: 900;
+        font-size: 1vw;
     }
 
     .status:not(:last-child) {
