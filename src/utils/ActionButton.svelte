@@ -1,20 +1,19 @@
 <script>
     export let text;
+    export let color = "var(--primary)"
 </script>
 
 
 <main>
-    <button class="act_btn">{ text }</button>
+    <button class="act_btn" style="background-color: {color}">{@html text }</button>
 </main>
 
 <style>
 
     .act_btn {
-        background-color: var(--primary);
         border: none;
         outline: none;
-        width: 5vw;
-        height: 2.5vw;
+        padding: 15px 20px 15px 20px;
         border-radius: 5px;
         color: white;
         font-family : inherit;

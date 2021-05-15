@@ -12,7 +12,11 @@
             <p id="listname">{ collectionName }</p>
 
         </div>
-        <ActionButton text="Study !"/>
+        <div id="buttons">
+            <ActionButton text="<i class='fas fa-pencil-alt'></i>" color="var(--dark)"/>
+            <ActionButton text="Study !"/>
+
+        </div>
     </div>
 </main>
 
@@ -45,4 +49,11 @@
         background-color: var(--accent);
 
     }
+
+    #buttons {
+        display: flex;
+        gap: 5px;
+    }
+
+
 </style>
