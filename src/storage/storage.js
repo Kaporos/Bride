@@ -56,5 +56,14 @@ let tmpCollections = [
 ]
 
 
-export const collectionsStorage = writable(tmpCollections)
+function save(data) {
+    localStorage.setItem("brite", JSON.stringify(data))
+}
+
+function getData() {
+    return JSON.parse(localStorage.getItem("brite"))
+}
+
+
+export const collectionsStorage = writable(getData())
 

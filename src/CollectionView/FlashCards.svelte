@@ -120,6 +120,7 @@
         cursor: pointer;
         position: relative;
         background-color: var(--light);
+        border-radius: 5px;
     }
 
     .card.is-flipped {
