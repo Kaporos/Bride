@@ -3,7 +3,7 @@
 	import Navbar from "./CollectionView/Navbar.svelte"
 	import Collection from "./CollectionView/Collection.svelte"
 	import HomeView from "./HomeView/HomeView.svelte"
-
+	import { slide, fade } from 'svelte/transition';
 	import { collectionsStorage} from "./storage/storage";
 	import { onDestroy } from "svelte"
 
@@ -31,17 +31,20 @@
 
 		<Topbar/>
 
-		{#if currentCollection !== 0}
-		<div id="content">
-			<Navbar/>
-			<Collection on:home={goHome} collection={currentCollection}/>
+		<div id="page">
+			{#if currentCollection !== 0}
+				<div id="content" transition:slide>
+					<Navbar/>
+					<Collection on:home={goHome} collection={currentCollection}/>
+				</div>
+			{:else }
+				<div id="home" in:fade="{{delay:200}}">
+					<HomeView on:choose={setCollection} collections={collections} />
+				</div>
+			{/if}
 		</div>
-		{:else }
-			<div id="home">
-				<HomeView on:choose={setCollection} collections={collections} />
 
-			</div>
-		{/if}
+
 	</div>
 
 </main>
@@ -52,13 +55,23 @@
 
 	}
 
+	#page {
+		width: 100vw;
+		position: relative;
+	}
+
 	#home {
 		overflow: auto;
 		max-height: 92vh;
+		position: absolute;
+		top: 0;
+		width: 100vw;
 	}
 
 	#content {
 		display: flex;
-		width: 100%;
+		position: absolute;
+		top: 0;
+		width: 100vw;
 	}
 </style>

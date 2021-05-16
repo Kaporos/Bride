@@ -105,7 +105,7 @@
         border-radius: 5px;
         color: var(--background);
         margin-bottom: 5px;
-        font-size: 1vw;
+        font-size: .8vw;
 
 
     }
@@ -123,7 +123,7 @@
         flex-direction: column;
         align-items: center;
         color: var(--dark);
-        font-size: 1vw;
+        font-size: .6vw;
 
 
     }
