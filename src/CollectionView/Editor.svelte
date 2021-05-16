@@ -6,7 +6,6 @@
     let dispatch = createEventDispatcher()
 
     export let collection;
-    export let collectionId;
 
     function addCard() {
         collection.cards.push({
