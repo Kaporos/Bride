@@ -1,11 +1,12 @@
 <script>
+    import {slide} from "svelte/transition"
     export let term;
     export let definition;
     export let status;
 </script>
 
 <main>
-    <div class="{status} flash">
+    <div class="{status} flash" in:slide>
         <div class="term">{ term }</div>
         <div class="definition"> { definition }</div>
 

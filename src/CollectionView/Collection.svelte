@@ -35,7 +35,7 @@
         max-height: 92vh;
         flex-grow: 0;
         font-family: "Gilroy",serif;
-        overflow-y: auto;
+        overflow-y: scroll;
     }
 
     #wrapper {

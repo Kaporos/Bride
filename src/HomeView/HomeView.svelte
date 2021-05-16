@@ -3,23 +3,27 @@
     import { createEventDispatcher } from 'svelte';
     const dispatch = createEventDispatcher();
     export let collections;
-    console.log(collections)
 
 
     let filter = ""
 
+    function normalize(text) {
+        return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        /* To lower case and remove accents */
+    }
+
     $: collectionsOk = collections.filter(collection => {
-        let parsedFilter = filter.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-        if (parsedFilter === "") {
+        let normalizedFilter = normalize(filter)
+        if (normalizedFilter === "") {
             return collection
         }
         else {
-            if (collection.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(parsedFilter) || collection.author.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(parsedFilter)) {
+            if (normalize(collection.title).includes(normalizedFilter) || normalize(collection.author).includes(normalizedFilter)) {
                 return collection
             }
             let ok = false
             collection.tags.forEach((tag) => {
-                if (tag.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(parsedFilter)) {
+                if (normalize(tag).includes(normalizedFilter)) {
                     ok = true
                 }
             })
@@ -33,7 +37,6 @@
         dispatch("choose", {
             collection: collection
         })
-        console.log("CLICKED")
 
     }
 
@@ -48,9 +51,10 @@
 
 
 
-            {#each collectionsOk as collection}
-
-                <CollectionCard  on:click={choose(collection)}  collection={collection} />
+            {#each collections as collection}
+                {#if collectionsOk.includes(collection)}
+                <CollectionCard on:click={choose(collection)}  collection={collection} />
+                {/if}
 
             {/each}
         </div>

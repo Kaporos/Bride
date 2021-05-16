@@ -1,7 +1,6 @@
 <script>
     import FlashPreview from "../utils/FlashPreview.svelte"
     import IconButton from "../utils/IconButton.svelte"
-
     export let cards;
 
     let view = "list"
