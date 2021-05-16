@@ -3,12 +3,25 @@
     import Status from "./Status.svelte"
     import FlashCards from "./FlashCards.svelte"
     import {createEventDispatcher} from "svelte";
+    import Editor from "./Editor.svelte";
+    import {save} from "../storage/storage"
     const dispatch = createEventDispatcher();
     export let collection;
+    export let collectionId;
 
+    export let edition = false;
+
+    function toogleEdition() {
+        edition = !edition
+    }
 
     function goHome() {
         dispatch("home", {})
+    }
+
+    function saveCollection() {
+        toogleEdition()
+        dispatch("save")
     }
 
 </script>
@@ -18,9 +31,15 @@
     <div id="main" class="part">
 
         <div id="wrapper">
-            <TitleBar on:click={goHome} collectionName="{collection.title}"/>
+            {#if !edition}
+            <TitleBar on:home={goHome} on:edit={toogleEdition} collectionName="{collection.title}"/>
             <Status cards={collection.cards}/>
             <FlashCards cards={collection.cards}/>
+            {:else}
+            <Editor on:save={saveCollection} collection={collection} collectionId={collectionId}/>
+            {/if}
+
+
         </div>
 
 

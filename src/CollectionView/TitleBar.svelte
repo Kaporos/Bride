@@ -7,7 +7,11 @@
     export let collectionName;
 
     function clickHome() {
-        dispatch("click", {})
+        dispatch("home", {})
+    }
+
+    function clickEdit() {
+        dispatch("edit")
     }
 
 </script>
@@ -20,7 +24,7 @@
 
         </div>
         <div id="buttons">
-            <ActionButton text="<i class='fas fa-pencil-alt'></i>" color="var(--dark)"/>
+            <ActionButton on:click={clickEdit} text="<i class='fas fa-pencil-alt'></i>" color="var(--dark)"/>
             <ActionButton text="Study !"/>
 
         </div>

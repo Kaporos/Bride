@@ -7,11 +7,13 @@
 	import {collectionsStorage} from "./storage/storage";
 	import {onDestroy} from "svelte"
 	import Popup from "./EditPopup/Popup.svelte";
+	import {save} from "./storage/storage"
 
 	let home = false;
 
 	let collections = []
 	let currentCollection = 0
+	/* let currentCollection = 0 */
 
 	let popup = false;
 
@@ -30,6 +32,10 @@
 		currentCollection = 0
 	}
 
+	function saveCollection() {
+		save(collections)
+	}
+
 
 </script>
 
@@ -42,7 +48,7 @@
 			{#if currentCollection !== 0}
 				<div id="content" transition:slide>
 					<Navbar/>
-					<Collection on:home={goHome} collection={currentCollection}/>
+					<Collection on:save={saveCollection} on:home={goHome} collection={currentCollection} collectionId={collections.indexOf(currentCollection)}/>
 				</div>
 			{:else }
 				<div id="home" in:fade="{{delay:200}}">
