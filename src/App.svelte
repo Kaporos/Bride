@@ -3,22 +3,29 @@
 	import Navbar from "./CollectionView/Navbar.svelte"
 	import Collection from "./CollectionView/Collection.svelte"
 	import HomeView from "./HomeView/HomeView.svelte"
-	import { slide, fade } from 'svelte/transition';
-	import { collectionsStorage} from "./storage/storage";
-	import { onDestroy } from "svelte"
+	import {slide, fade} from 'svelte/transition';
+	import {collectionsStorage} from "./storage/storage";
+	import {onDestroy} from "svelte"
+	import Popup from "./EditPopup/Popup.svelte";
 
 	let home = false;
 
 	let collections = []
 	let currentCollection = 0
 
+	let popup = false;
 
-	const unsuscribe = collectionsStorage.subscribe(value => collections = value )
+	function tooglePopup() {
+		popup = !popup;
+	}
+
+	const unsuscribe = collectionsStorage.subscribe(value => collections = value)
 	onDestroy(unsuscribe)
 
 	function setCollection(event) {
 		currentCollection = event.detail.collection
 	}
+
 	function goHome(event) {
 		currentCollection = 0
 	}
@@ -29,7 +36,7 @@
 <main>
 	<div id="app">
 
-		<Topbar/>
+		<Topbar on:new={tooglePopup}/>
 
 		<div id="page">
 			{#if currentCollection !== 0}
@@ -43,7 +50,9 @@
 				</div>
 			{/if}
 		</div>
-
+		{#if popup}
+		<Popup on:close={tooglePopup}/>
+		{/if}
 
 	</div>
 

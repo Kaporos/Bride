@@ -58,10 +58,11 @@
 
     .card {
         width: 15vw;
-        height: 20vh;
+        min-height: 20vh;
         position: relative;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         background-color: var(--background);
         border-bottom: 5px solid var(--accent);
         font-weight: bold;
@@ -114,6 +115,7 @@
         display: flex;
         justify-content: space-evenly;
         border-top: 1px solid var(--dark);
+        height: 100%;
     }
     .status {
         width: 25%;

@@ -1,6 +1,13 @@
 <script>
 
     import ActionButton from "./utils/ActionButton.svelte"
+    import {createEventDispatcher} from "svelte";
+    var dispatch = createEventDispatcher()
+
+    function newColl() {
+        console.log("NEw")
+        dispatch("new")
+    }
 
 </script>
 
@@ -11,7 +18,7 @@
             Brite
         </p>
         <div id="addBtn">
-            <ActionButton text="Nouvelle Collection" color="var(--background)" textColor="var(--dark)"/>
+            <ActionButton on:click={newColl} text="Nouvelle Collection" color="var(--background)" textColor="var(--dark)"/>
 
         </div>
 

@@ -64,6 +64,6 @@ function getData() {
     return JSON.parse(localStorage.getItem("brite"))
 }
 
-
+save(tmpCollections)
 export const collectionsStorage = writable(getData())
 

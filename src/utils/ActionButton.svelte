@@ -1,12 +1,22 @@
 <script>
+    import {createEventDispatcher} from "svelte";
+
     export let text;
     export let textColor = "white";
     export let color = "var(--primary)"
+
+    let dispatch = createEventDispatcher()
+
+    function click() {
+        dispatch("click")
+
+    }
+
 </script>
 
 
 <main>
-    <button class="act_btn" style="background-color: {color};color: {textColor}">{@html text }</button>
+    <button on:click={click} class="act_btn" style="background-color: {color};color: {textColor}">{@html text }</button>
 </main>
 
 <style>
