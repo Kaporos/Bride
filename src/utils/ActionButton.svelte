@@ -1,11 +1,12 @@
 <script>
     export let text;
+    export let textColor = "white";
     export let color = "var(--primary)"
 </script>
 
 
 <main>
-    <button class="act_btn" style="background-color: {color}">{@html text }</button>
+    <button class="act_btn" style="background-color: {color};color: {textColor}">{@html text }</button>
 </main>
 
 <style>

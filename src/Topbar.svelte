@@ -1,5 +1,7 @@
 <script>
 
+    import ActionButton from "./utils/ActionButton.svelte"
+
 </script>
 
 <main>
@@ -8,6 +10,10 @@
         <p id="brand">
             Brite
         </p>
+        <div id="addBtn">
+            <ActionButton text="Nouvelle Collection" color="var(--background)" textColor="var(--dark)"/>
+
+        </div>
 
     </div>
 
@@ -16,6 +22,12 @@
 
 
 <style>
+
+
+    #addBtn {
+        margin-right: 50px;
+    }
+
     #topbar {
 
         width: 100%;
@@ -23,6 +35,7 @@
         background-color: var(--dark);
         display: flex;
         align-items: center;
+        justify-content: space-between;
         font-family: "Gilroy",serif
     }
 
