@@ -1,6 +1,18 @@
 <script>
     import ActionButton from "../utils/ActionButton.svelte";
-    import {createEventDispatcher} from "svelte";
+    import Tagify from '@yaireo/tagify'
+    import "@yaireo/tagify/dist/tagify.css"
+
+
+    let tagsInput;
+    let tagify;
+
+    onMount(() => {
+        tagify = new Tagify(tagsInput);
+    });
+
+
+    import {createEventDispatcher, onMount} from "svelte";
 
 
     let dispatch = createEventDispatcher()
@@ -22,7 +34,8 @@
         collection = collection
     }
 
-    function save(){
+    async function save(){
+        collection.tags = tagify.value.map(v => v.value)
         dispatch("save")
     }
 
@@ -45,7 +58,7 @@
         <div id="global">
             <input type="text" placeholder="Titre" bind:value={collection.title}>
             <input type="text" placeholder="Auteur" bind:value={collection.author}>
-            <input type="text" placeholder="Tags">
+            <input  class="tagify" type="text" placeholder="Tags" bind:this={tagsInput} value='{collection.tags.join(",")}'>
         </div>
 
         <div id="cards">
@@ -83,9 +96,32 @@
 
 <style>
 
+
+    #editor .tagify {
+        outline: none;
+        border: none;
+        background-color: var(--light);
+        filter: brightness(95%);
+        width: 100%;
+        padding: 10px 0px;
+        border-radius: 5px;
+        font-family: inherit;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-bottom: 5px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        --tag-bg: rgba(0,0,0,.1);
+        --tag-text-color: var(--dark);
+        --tag-hover: rgba(0,0,0,.2);
+        --tag-invalid-bg: rgba(255,0,0,.4)
+    }
+
     #editor{
         padding-top: 80px;
         width: 50%;
+
     }
 
     #global {
@@ -112,7 +148,7 @@
         margin-bottom: 50px;
     }
 
-    input {
+    input{
         outline: none;
         border: none;
         background-color: var(--light);
