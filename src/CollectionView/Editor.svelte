@@ -103,11 +103,9 @@
         background-color: var(--light);
         filter: brightness(95%);
         width: 100%;
-        padding: 10px 0px;
+        padding: 10px 15px 10px 15px;
         border-radius: 5px;
         font-family: inherit;
-        padding-left: 15px;
-        padding-right: 15px;
         margin-bottom: 5px;
         box-sizing: border-box;
         display: flex;
