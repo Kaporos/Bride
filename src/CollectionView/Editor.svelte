@@ -23,7 +23,7 @@
         collection.cards.push({
             term: "",
             definition: "",
-            status: "none"
+            points: 0
         })
         collection = collection
     }

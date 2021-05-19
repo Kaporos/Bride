@@ -2,7 +2,11 @@
     import {slide} from "svelte/transition"
     export let term;
     export let definition;
-    export let status;
+    export let points;
+
+
+    $: status = points > 10 ?  "ok" : points < 5 ? "none" : "semi"
+
 </script>
 
 <main>

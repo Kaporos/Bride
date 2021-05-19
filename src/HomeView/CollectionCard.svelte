@@ -4,9 +4,9 @@
     const dispatch = createEventDispatcher();
     export let collection;
 
-    $: ok = collection.cards.filter(card => card.status === "ok").length
-    $: semi = collection.cards.filter(card => card.status === "semi").length
-    $: none = collection.cards.filter(card => card.status === "none").length
+    $: ok = collection.cards.filter(card => card.points > 10).length
+    $: semi = collection.cards.filter(card => card.points < 10 && card.points >= 5).length
+    $: none = collection.cards.filter(card => card.points < 5).length
     $: total = ok + semi + none
 
 

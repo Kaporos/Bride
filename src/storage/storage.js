@@ -9,17 +9,17 @@ let tmpCollections = [
             {
                 "term": "table",
                 "definition": "table",
-                "status": "ok"
+                "points": 15
             },
             {
                 "term": "apple",
                 "definition": "pomme",
-                "status": "semi"
+                "points": 8
             },
             {
                 "term": "peach",
                 "definition": "pêche",
-                "status": "none"
+                "points": 1
             },
 
         ]
@@ -32,22 +32,22 @@ let tmpCollections = [
             {
                 "term": "Dish",
                 "definition": "Plat",
-                "status": "ok"
+                "points": 8
             },
             {
                 "term": "The place of the women",
                 "definition": "In the kitchen",
-                "status": "ok"
+                "points": 15
             },
             {
                 "term": "Rock",
                 "definition": "Pierre",
-                "status": "semi"
+                "points": 9
             },
             {
                 "term": "Meat",
                 "definition": "viande",
-                "status": "none"
+                "points": 14
             },
 
         ]

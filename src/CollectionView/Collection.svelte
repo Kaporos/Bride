@@ -24,6 +24,10 @@
         dispatch("save")
     }
 
+    function study() {
+        dispatch("study")
+    }
+
 </script>
 
 
@@ -32,7 +36,7 @@
 
         <div id="wrapper">
             {#if !edition}
-            <TitleBar on:home={goHome} on:edit={toogleEdition} collectionName="{collection.title}"/>
+            <TitleBar on:study={study} on:home={goHome} on:edit={toogleEdition} collectionName="{collection.title}"/>
             <Status cards={collection.cards}/>
             <FlashCards cards={collection.cards}/>
             {:else}

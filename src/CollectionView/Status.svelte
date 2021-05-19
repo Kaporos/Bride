@@ -2,9 +2,9 @@
     import Card from "../utils/Card.svelte"
     export let cards;
 
-    $: ok = cards.filter(card => card.status === "ok").length
-    $: semi = cards.filter(card => card.status === "semi").length
-    $: none = cards.filter(card => card.status === "none").length
+    $: ok = cards.filter(card => card.points > 10).length
+    $: semi = cards.filter(card => card.points < 10 && card.points >= 5).length
+    $: none = cards.filter(card => card.points < 5).length
     $: total = ok + semi + none
 
 </script>

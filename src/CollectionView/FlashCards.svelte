@@ -30,6 +30,30 @@
     }
 
 
+    let sortFromRed = false;
+
+    function sortCards(a,b) {
+        let x = a.points
+        let y = b.points
+        if (sortFromRed) {
+            console.log("Jean")
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0))
+        }
+        console.log("hello")
+        return ((x < y) ? 1 : ((x > y) ? -1 : 0))
+    }
+
+
+
+    $: sortedCards = cards.sort(sortCards)
+
+    function toogleSort() {
+        sortFromRed = !sortFromRed;
+        sortedCards = cards.sort(sortCards)
+
+    }
+
+
 </script>
 
 <main>
@@ -39,14 +63,14 @@
             <p>Cards</p>
             <div id="buttons">
                 <IconButton on:click={changeView} icon="{view === 'list' ? 'fas fa-list' : 'fas fa-retweet'}" />
-                <IconButton icon="fas fa-sort-amount-up" />
+                <IconButton on:click={toogleSort} icon="fas fa-sort-amount-{sortFromRed ? 'up' : 'down'}" />
             </div>
         </div>
 
 
         {#if view === "list"}
-        {#each cards as card}
-            <FlashPreview status="{card.status}" term="{card.term}" definition="{card.definition}"/>
+        {#each sortedCards as card}
+            <FlashPreview points="{card.points}" term="{card.term}" definition="{card.definition}"/>
         {/each}
         {/if}
         {#if view === "card"}

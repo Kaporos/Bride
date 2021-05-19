@@ -8,8 +8,15 @@
 	import {onDestroy} from "svelte"
 	import Popup from "./EditPopup/Popup.svelte";
 	import {save} from "./storage/storage"
+	import Studyview from "./StudyView/Studyview.svelte"
 
 	let home = false;
+
+	let study = false;
+
+	function toogleStudy() {
+		study = !study
+	}
 
 	let collections = []
 	let currentCollection = 0
@@ -44,20 +51,25 @@
 
 		<Topbar on:new={tooglePopup}/>
 
-		<div id="page">
-			{#if currentCollection !== 0}
-				<div id="content" transition:slide>
-					<Navbar/>
-					<Collection on:save={saveCollection} on:home={goHome} collection={currentCollection} collectionId={collections.indexOf(currentCollection)}/>
-				</div>
-			{:else }
-				<div id="home" in:fade="{{delay:200}}">
-					<HomeView on:choose={setCollection} collections={collections} />
-				</div>
+
+		{#if study && currentCollection !== 0}
+			<Studyview on:quit={toogleStudy} collection={currentCollection} />
+		{:else }
+			<div id="page">
+				{#if currentCollection !== 0}
+					<div id="content" transition:slide>
+						<Navbar/>
+						<Collection on:study={toogleStudy} on:save={saveCollection} on:home={goHome} collection={currentCollection} collectionId={collections.indexOf(currentCollection)}/>
+					</div>
+				{:else }
+					<div id="home" in:fade="{{delay:200}}">
+						<HomeView on:choose={setCollection} collections={collections} />
+					</div>
+				{/if}
+			</div>
+			{#if popup}
+			<Popup on:close={tooglePopup}/>
 			{/if}
-		</div>
-		{#if popup}
-		<Popup on:close={tooglePopup}/>
 		{/if}
 
 	</div>

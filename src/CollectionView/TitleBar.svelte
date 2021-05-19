@@ -14,6 +14,10 @@
         dispatch("edit")
     }
 
+    function study() {
+        dispatch("study")
+    }
+
 </script>
 
 <main>
@@ -25,7 +29,7 @@
         </div>
         <div id="buttons">
             <ActionButton on:click={clickEdit} text="<i class='fas fa-pencil-alt'></i>" color="var(--dark)"/>
-            <ActionButton text="Study !"/>
+            <ActionButton on:click={study} text="Study !"/>
 
         </div>
     </div>
