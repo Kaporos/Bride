@@ -1,6 +1,7 @@
 <script>
     import FlashPreview from "../utils/FlashPreview.svelte"
     import IconButton from "../utils/IconButton.svelte"
+    import {slide} from "svelte/transition"
     export let cards;
 
     let view = "list"
@@ -20,9 +21,11 @@
     let flipCurrentCard = 0;
 
     function next() {
+        isFlipped = false;
         flipCurrentCard = flipCurrentCard === cards.length - 1 ? 0 : flipCurrentCard + 1
     }
     function previous() {
+        isFlipped = false;
         flipCurrentCard = flipCurrentCard === 0  ? cards.length - 1 : flipCurrentCard - 1
     }
 
@@ -49,10 +52,14 @@
         {#if view === "card"}
             <div id="reverse">
                 <div class="scene">
-                    <div on:click={flip} class="card {isFlipped ? 'is-flipped' : '' }">
-                        <div class="card__face card__face--front">{ cards[flipCurrentCard].term }</div>
-                        <div class="card__face card__face--back">{ cards[flipCurrentCard].definition }</div>
-                    </div>
+                    {#each cards as card}
+                        {#if card === cards[flipCurrentCard]}
+                                <div  on:click={flip} class="card {isFlipped ? 'is-flipped' : '' }">
+                                    <div class="card__face card__face--front"><p>{ cards[flipCurrentCard].term }</p></div>
+                                    <div class="card__face card__face--back">{ cards[flipCurrentCard].definition }</div>
+                                </div>
+                        {/if}
+                    {/each}
                 </div>
                 <div id="controls">
                     <i on:click={previous} class="fas fa-arrow-left"></i>
@@ -124,7 +131,7 @@
     }
 
     .card.is-flipped {
-        transform: rotateY(180deg);
+        transform: rotateX(180deg);
     }
 
     .card__face {
@@ -151,8 +158,7 @@
 
     .card__face--back {
         background: var(--light);
-
-        transform: rotateY(180deg);
+        transform: rotateX(180deg);
     }
 
 
