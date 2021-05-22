@@ -30,7 +30,7 @@
     }
 
 
-    let sortFromRed = false;
+    let sortFromRed = true;
 
     function sortCards(a,b) {
         let x = a.points
@@ -146,7 +146,7 @@
     .card {
         width: 99.5%;
         height: 100%;
-        transition: transform 1s;
+        transition: transform .6s;
         transform-style: preserve-3d;
         cursor: pointer;
         position: relative;
