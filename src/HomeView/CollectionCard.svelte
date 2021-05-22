@@ -16,8 +16,6 @@
 
 </script>
 
-<main>
-
     <div class="card" on:click={click}>
 
         <div class="content">
@@ -52,13 +50,13 @@
         </div>
     </div>
 
-</main>
+
 
 <style>
 
     .card {
-        width: 15vw;
-        min-height: 20vh;
+        flex-grow: 1;
+        max-width: 300px;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -81,13 +79,12 @@
 
 
     .content {
-        height: 100%;
         color: var(--dark);
         padding: 10px;
     }
 
     #title {
-        font-size: 1.3vw;
+        font-size: 20px;
 
     }
 
@@ -106,7 +103,7 @@
         border-radius: 5px;
         color: var(--background);
         margin-bottom: 5px;
-        font-size: .8vw;
+        font-size: 14px;
 
 
     }
@@ -115,7 +112,6 @@
         display: flex;
         justify-content: space-evenly;
         border-top: 1px solid var(--dark);
-        height: 100%;
     }
     .status {
         width: 25%;
@@ -125,20 +121,22 @@
         flex-direction: column;
         align-items: center;
         color: var(--dark);
-        font-size: .6vw;
+        font-size: 13px;
 
 
     }
 
     .number {
         font-weight: 900;
-        font-size: 1vw;
+        font-size: 15px;
     }
 
     .status:not(:last-child) {
         border-right: 1px solid var(--dark);
 
     }
+
+
 
 
 </style>

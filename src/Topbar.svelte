@@ -32,7 +32,7 @@
 
 
     #addBtn {
-        margin-right: 50px;
+        margin-right: 15px;
     }
 
     #topbar {
@@ -48,7 +48,7 @@
 
     #brand {
         color: var(--light);
-        font-size: 2vw;
+        font-size: 25px;
         font-weight: bold;
         padding-left: 15px;
 

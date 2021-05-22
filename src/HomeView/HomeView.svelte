@@ -12,6 +12,7 @@
         /* To lower case and remove accents */
     }
 
+
     $: collectionsOk = collections.filter(collection => {
         let normalizedFilter = normalize(filter)
         if (normalizedFilter === "") {
@@ -42,8 +43,6 @@
 
 </script>
 
-<main>
-
     <div id="content">
         <input type="text" bind:value={filter} placeholder="Recherche">
 
@@ -61,24 +60,20 @@
     </div>
 
 
-
-
-</main>
-
-
 <style>
 
     #cards {
-        max-height: 92vw;
-        padding-top: 50px;
+        height: 100%;
+        max-height: 84vh;
         background-color: var(--background);
         display: flex;
         flex-wrap: wrap;
-        overflow: auto;
+        overflow-y: auto;
         justify-content: center;
     }
     #content {
         width: 95%;
+        height: 100%;
         margin-right: auto;
         margin-left: auto;
         margin-top: 15px;

@@ -58,7 +58,6 @@
 			<div id="page">
 				{#if currentCollection !== 0}
 					<div id="content" transition:slide>
-						<Navbar/>
 						<Collection on:study={toogleStudy} on:save={saveCollection} on:home={goHome} collection={currentCollection} collectionId={collections.indexOf(currentCollection)}/>
 					</div>
 				{:else }
@@ -88,11 +87,11 @@
 	}
 
 	#home {
-		overflow: auto;
-		max-height: 92vh;
+		overflow: hidden;
 		position: absolute;
 		top: 0;
 		width: 100vw;
+		max-height: 92vh;
 	}
 
 	#content {

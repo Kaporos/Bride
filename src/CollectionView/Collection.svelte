@@ -5,6 +5,7 @@
     import {createEventDispatcher} from "svelte";
     import Editor from "./Editor.svelte";
     import {save} from "../storage/storage"
+    import Navbar from "./Navbar.svelte"
     const dispatch = createEventDispatcher();
     export let collection;
     export let collectionId;
@@ -24,45 +25,46 @@
         dispatch("save")
     }
 
-    function study() {
+
+    let study = false;
+
+    function toogleStudy() {
         dispatch("study")
     }
 
 </script>
 
-
-<main>
-    <div id="main" class="part">
-
-        <div id="wrapper">
-            {#if !edition}
-            <TitleBar on:study={study} on:home={goHome} on:edit={toogleEdition} collectionName="{collection.title}"/>
-            <Status cards={collection.cards}/>
-            <FlashCards cards={collection.cards}/>
-            {:else}
-            <Editor on:save={saveCollection} collection={collection} collectionId={collectionId}/>
-            {/if}
-
-
-        </div>
+<div id="main" class="part">
+    <Navbar/>
+    <div id="wrapper">
+        {#if !edition}
+        <TitleBar on:study={toogleStudy} on:home={goHome} on:edit={toogleEdition} collectionName="{collection.title}"/>
+        <Status cards={collection.cards}/>
+        <FlashCards cards={collection.cards}/>
+        {:else}
+        <Editor on:save={saveCollection} collection={collection} collectionId={collectionId}/>
+        {/if}
 
 
     </div>
 
-</main>
+
+</div>
+
 
 <style>
     #main {
-        width: 80vw;
+        width: 100%;
         height: 92vh;
         max-height: 92vh;
-        flex-grow: 0;
+        display: flex;
         font-family: "Gilroy",serif;
         overflow-y: scroll;
     }
 
     #wrapper {
         padding-left: 70px;
+        width: 100%;
 
     }
 </style>

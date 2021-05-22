@@ -26,7 +26,7 @@ let tmpCollections = [
     },
     {
         "title": "Unit 3: Vocabulary",
-        "author": "Isabelle la pute",
+        "author": "Isabelle Noel",
         "tags": ["Anglais","Ecole"],
         "cards": [
             {
@@ -54,7 +54,7 @@ let tmpCollections = [
     },
     {
         "title": "Unit 3: Vocabulary",
-        "author": "Isabelle la pute",
+        "author": "Isabelle Noel",
         "tags": ["Anglais","Ecole"],
         "cards": [
             {
@@ -82,7 +82,7 @@ let tmpCollections = [
     },
     {
         "title": "Unit 3: Vocabulary",
-        "author": "Isabelle la pute",
+        "author": "Isabelle Noel",
         "tags": ["Anglais","Ecole"],
         "cards": [
             {
@@ -110,7 +110,7 @@ let tmpCollections = [
     },
     {
         "title": "Unit 3: Vocabulary",
-        "author": "Isabelle la pute",
+        "author": "Isabelle Noel",
         "tags": ["Anglais","Ecole"],
         "cards": [
             {
@@ -138,7 +138,7 @@ let tmpCollections = [
     },
     {
         "title": "Unit 3: Vocabulary",
-        "author": "Isabelle la pute",
+        "author": "Isabelle Noel",
         "tags": ["Anglais","Ecole"],
         "cards": [
             {
@@ -166,7 +166,7 @@ let tmpCollections = [
     },
     {
         "title": "Unit 3: Vocabulary",
-        "author": "Isabelle la pute",
+        "author": "Isabelle Noel",
         "tags": ["Anglais","Ecole"],
         "cards": [
             {
@@ -194,7 +194,7 @@ let tmpCollections = [
     },
     {
         "title": "Unit 3: Vocabulary",
-        "author": "Isabelle la pute",
+        "author": "Isabelle Noel",
         "tags": ["Anglais","Ecole"],
         "cards": [
             {

@@ -2,19 +2,18 @@
 
 </script>
 
-<main>
-    <div id="navbar" class="part">
+<div id="navbar" class="part">
 
 
 
-    </div>
-</main>
+</div>
 
 <style>
     #navbar {
-        min-height: 92vh;
+        height: 100%;
         width: 20vw;
         background-color:var(--light);
+        flex:0 0 auto;
     }
 
 </style>
