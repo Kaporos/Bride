@@ -22,12 +22,17 @@
         border-radius: 15px;
         margin-top: 15px;
         margin-bottom: 15px;
-        margin-right: 15px;
         position: relative;
-        width: 10vw;
-        height: 10vw;
+        width: 10vmax;
+        height: 10vmax;
         display: flex;
         padding: 15px;
+    }
+
+    @media screen and (max-width: 640px) {
+        .card {
+            margin-right: 5px;
+        }
     }
 
 

@@ -10,7 +10,7 @@
     export let collection;
     export let collectionId;
 
-    export let edition = false;
+    export let edition = true;
 
     function toogleEdition() {
         edition = !edition
@@ -36,17 +36,20 @@
 
 <div id="main" class="part">
     <Navbar/>
-    <div id="wrapper">
-        {#if !edition}
-        <TitleBar on:study={toogleStudy} on:home={goHome} on:edit={toogleEdition} collectionName="{collection.title}"/>
-        <Status cards={collection.cards}/>
-        <FlashCards cards={collection.cards}/>
-        {:else}
-        <Editor on:save={saveCollection} collection={collection} collectionId={collectionId}/>
-        {/if}
+    <div id="big">
+        <div id="wrapper">
+            {#if !edition}
+                <TitleBar on:study={toogleStudy} on:home={goHome} on:edit={toogleEdition} collectionName="{collection.title}"/>
+                <Status cards={collection.cards}/>
+                <FlashCards cards={collection.cards}/>
+            {:else}
+                <Editor on:save={saveCollection} collection={collection} collectionId={collectionId}/>
+            {/if}
 
 
+        </div>
     </div>
+
 
 
 </div>
@@ -62,11 +65,17 @@
         overflow-y: scroll;
     }
 
-    #wrapper {
-        padding-left: 70px;
-        width: 100%;
-
+    #big {
+        width: 50%;
     }
+
+    @media screen and (max-width: 640px){
+        #big {
+            width: 90%;
+            margin-left: 5%;
+        }
+    }
+
 </style>
 
 

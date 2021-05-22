@@ -27,9 +27,12 @@
     #progress {
         display: flex;
         align-items: center;
-        width: 65%;
+        width: 100%;
         justify-content: space-between;
+        overflow: auto;
     }
+
+
 
     #progress {
         padding-top: 10px;

@@ -79,7 +79,7 @@
                     {#each cards as card}
                         {#if card === cards[flipCurrentCard]}
                                 <div  on:click={flip} class="card {isFlipped ? 'is-flipped' : '' }">
-                                    <div class="card__face card__face--front"><p>{ cards[flipCurrentCard].term }</p></div>
+                                    <div class="card__face card__face--front">{ cards[flipCurrentCard].term }</div>
                                     <div class="card__face card__face--back">{ cards[flipCurrentCard].definition }</div>
                                 </div>
                         {/if}
@@ -104,13 +104,13 @@
         padding-top: 2vh;
         min-width: 0;
         min-height: 0;
-        width: 50%;
+        width: 100%;
 
     }
 
     #cards p{
         font-weight: bold;
-        font-size: 1.8vw;
+        font-size: 30px;
         color: var(--dark);
 
     }
@@ -136,12 +136,13 @@
     .scene {
         width: 45%;
         margin: auto;
-        height: 10vw;
+        height: 10vmax;
         border: 1px solid #CCC;
         perspective: 800px;
         border-radius: 5px;
-
     }
+
+
 
     .card {
         width: 99.5%;
@@ -166,7 +167,7 @@
         height: 100%;
         color: var(--dark);
         font-weight: bold;
-        font-size: 1.8vw;
+        font-size: 1.8vmax;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         display: grid;
@@ -178,10 +179,12 @@
 
     .card__face--front {
         background: var(--light);
+
     }
 
     .card__face--back {
         background: var(--light);
+
         transform: rotateX(180deg);
     }
 
@@ -193,10 +196,24 @@
 
     #controls > * {
         padding: 10px 25px 10px 25px;
-        font-size: 1vw;
+        font-size: 1vmax;
+        color: var(--dark)
     }
 
     #controls i:hover {
         cursor: pointer;
+    }
+
+    @media screen and (max-width: 640px) {
+        .scene {
+            height: 20vmax;
+            width: 75%;
+        }
+        #controls > * {
+            font-size: 25px;
+        }
+        .card__face {
+         font-size: 30px;
+        }
     }
 </style>

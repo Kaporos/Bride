@@ -118,7 +118,7 @@
 
     #editor{
         padding-top: 80px;
-        width: 50%;
+        width: 100%;
 
     }
 
@@ -129,6 +129,7 @@
 
     #maintitle {
         position: relative;
+        font-size: 35px;
     }
     #maintitle::after {
         content: "";
@@ -169,7 +170,7 @@
 
     p {
         font-weight: bold;
-        font-size: 1.8vw;
+        font-size: 25px;
         color: var(--dark);
     }
 

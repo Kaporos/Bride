@@ -19,7 +19,7 @@
 	}
 
 	let collections = []
-	let currentCollection = 0
+	$: currentCollection = collections[0]
 	/* let currentCollection = 0 */
 
 	let popup = false;

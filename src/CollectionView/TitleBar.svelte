@@ -42,12 +42,12 @@
         align-items: center;
         justify-content: space-between;
         padding-top: 80px;
-        width: 65%;
+        width: 100%;
     }
 
     #title #listname {
         font-weight: bold;
-        font-size: 2.2vw;
+        font-size: 2.2vmax;
         color: var(--dark);
         position: relative;
     }
