@@ -52,6 +52,174 @@ let tmpCollections = [
 
         ]
     },
+    {
+        "title": "Unit 3: Vocabulary",
+        "author": "Isabelle la pute",
+        "tags": ["Anglais","Ecole"],
+        "cards": [
+            {
+                "term": "Dish",
+                "definition": "Plat",
+                "points": 8
+            },
+            {
+                "term": "The place of the women",
+                "definition": "In the kitchen",
+                "points": 15
+            },
+            {
+                "term": "Rock",
+                "definition": "Pierre",
+                "points": 9
+            },
+            {
+                "term": "Meat",
+                "definition": "viande",
+                "points": 14
+            },
+
+        ]
+    },
+    {
+        "title": "Unit 3: Vocabulary",
+        "author": "Isabelle la pute",
+        "tags": ["Anglais","Ecole"],
+        "cards": [
+            {
+                "term": "Dish",
+                "definition": "Plat",
+                "points": 8
+            },
+            {
+                "term": "The place of the women",
+                "definition": "In the kitchen",
+                "points": 15
+            },
+            {
+                "term": "Rock",
+                "definition": "Pierre",
+                "points": 9
+            },
+            {
+                "term": "Meat",
+                "definition": "viande",
+                "points": 14
+            },
+
+        ]
+    },
+    {
+        "title": "Unit 3: Vocabulary",
+        "author": "Isabelle la pute",
+        "tags": ["Anglais","Ecole"],
+        "cards": [
+            {
+                "term": "Dish",
+                "definition": "Plat",
+                "points": 8
+            },
+            {
+                "term": "The place of the women",
+                "definition": "In the kitchen",
+                "points": 15
+            },
+            {
+                "term": "Rock",
+                "definition": "Pierre",
+                "points": 9
+            },
+            {
+                "term": "Meat",
+                "definition": "viande",
+                "points": 14
+            },
+
+        ]
+    },
+    {
+        "title": "Unit 3: Vocabulary",
+        "author": "Isabelle la pute",
+        "tags": ["Anglais","Ecole"],
+        "cards": [
+            {
+                "term": "Dish",
+                "definition": "Plat",
+                "points": 8
+            },
+            {
+                "term": "The place of the women",
+                "definition": "In the kitchen",
+                "points": 15
+            },
+            {
+                "term": "Rock",
+                "definition": "Pierre",
+                "points": 9
+            },
+            {
+                "term": "Meat",
+                "definition": "viande",
+                "points": 14
+            },
+
+        ]
+    },
+    {
+        "title": "Unit 3: Vocabulary",
+        "author": "Isabelle la pute",
+        "tags": ["Anglais","Ecole"],
+        "cards": [
+            {
+                "term": "Dish",
+                "definition": "Plat",
+                "points": 8
+            },
+            {
+                "term": "The place of the women",
+                "definition": "In the kitchen",
+                "points": 15
+            },
+            {
+                "term": "Rock",
+                "definition": "Pierre",
+                "points": 9
+            },
+            {
+                "term": "Meat",
+                "definition": "viande",
+                "points": 14
+            },
+
+        ]
+    },
+    {
+        "title": "Unit 3: Vocabulary",
+        "author": "Isabelle la pute",
+        "tags": ["Anglais","Ecole"],
+        "cards": [
+            {
+                "term": "Dish",
+                "definition": "Plat",
+                "points": 8
+            },
+            {
+                "term": "The place of the women",
+                "definition": "In the kitchen",
+                "points": 15
+            },
+            {
+                "term": "Rock",
+                "definition": "Pierre",
+                "points": 9
+            },
+            {
+                "term": "Meat",
+                "definition": "viande",
+                "points": 14
+            },
+
+        ]
+    },
 
 ]
 
