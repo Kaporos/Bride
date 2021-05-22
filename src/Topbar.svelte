@@ -9,12 +9,16 @@
         dispatch("new")
     }
 
+    function gohome(){
+        dispatch("home")
+    }
+
 </script>
 
 <main>
     <div id="topbar" class="part">
 
-        <p id="brand">
+        <p id="brand" on:click={gohome}>
             Brite
         </p>
         <div id="addBtn">
@@ -52,6 +56,10 @@
         font-weight: bold;
         padding-left: 15px;
 
+    }
+
+    #brand:hover{
+        cursor: pointer;
     }
 </style>
 

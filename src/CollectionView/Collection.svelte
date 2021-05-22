@@ -10,7 +10,7 @@
     export let collection;
     export let collectionId;
 
-    export let edition = true;
+    $: edition = collection.title === "";
 
     function toogleEdition() {
         edition = !edition
@@ -49,9 +49,6 @@
 
         </div>
     </div>
-
-
-
 </div>
 
 

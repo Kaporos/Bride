@@ -6,7 +6,7 @@
 
     let tagsInput;
     let tagify;
-
+    let error = "";
     onMount(() => {
         tagify = new Tagify(tagsInput);
     });
@@ -36,6 +36,17 @@
 
     async function save(){
         collection.tags = tagify.value.map(v => v.value)
+
+        if (collection.title === "") {
+            error = "Vous devez mettre un titre"
+            return
+        }
+        if (collection.author === "") {
+            error = "Vous devez mettre un auteur"
+            return
+        }
+
+
         dispatch("save")
     }
 
@@ -49,6 +60,7 @@
 
         <div class="titlebar" id="toptitle">
             <p id="maintitle">Édition</p>
+            <p id="error">{error}</p>
             <div id="saveBtn">
                 <ActionButton on:click={save} text="Sauver"/>
 
@@ -114,6 +126,11 @@
         --tag-text-color: var(--dark);
         --tag-hover: rgba(0,0,0,.2);
         --tag-invalid-bg: rgba(255,0,0,.4)
+    }
+
+    #error {
+        color: var(--danger);
+        font-size: 1.3vmax;
     }
 
     #editor{

@@ -19,13 +19,20 @@
 	}
 
 	let collections = []
-	$: currentCollection = collections[0]
+	let currentCollection = 0
 	/* let currentCollection = 0 */
 
 	let popup = false;
 
-	function tooglePopup() {
-		popup = !popup;
+	function newCollection() {
+		collections.push({
+				"title": "",
+				"author": "",
+				"tags": [],
+				"cards": []
+		})
+		collections = collections
+		currentCollection = collections[collections.length - 1]
 	}
 
 	const unsuscribe = collectionsStorage.subscribe(value => collections = value)
@@ -37,6 +44,7 @@
 
 	function goHome(event) {
 		currentCollection = 0
+		collections = collections.filter(v => v.title !== "" && v.author !== "")
 	}
 
 	function saveCollection() {
@@ -49,7 +57,7 @@
 <main>
 	<div id="app">
 
-		<Topbar on:new={tooglePopup}/>
+		<Topbar on:new={newCollection} on:home={goHome}/>
 
 
 		{#if study && currentCollection !== 0}
@@ -66,9 +74,7 @@
 					</div>
 				{/if}
 			</div>
-			{#if popup}
-			<Popup on:close={tooglePopup}/>
-			{/if}
+
 		{/if}
 
 	</div>
